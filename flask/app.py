@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 import numpy as np
 import io
 import tensorflow as tf
+from flask import send_from_directory
+import os
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -41,7 +43,7 @@ def index():
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
     if 'image' not in request.files:
-        return render_template('predict.html', message = "No image file part in the request")
+        return render_template('predict.html')
 
     file = request.files['image']
 
@@ -91,6 +93,11 @@ def feedback():
         db.session.add(feedback)
         db.session.commit()
     return render_template('index.html', message = "")
+
+@app.route('/download/<filename>')
+def download_sample(filename):
+    sample_folder = os.path.join(app.root_path, 'static', 'samples')
+    return send_from_directory(directory=sample_folder, path=filename, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
