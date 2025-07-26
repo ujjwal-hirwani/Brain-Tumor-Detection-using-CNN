@@ -43,7 +43,7 @@ The idea stemmed from a desire to apply deep learning to a socially impactful do
 
 ## 🔗 Live Demo
 
-👉 [Try it now]([https://lnkd.in/dSfrdw-a](https://brainsight.onrender.com/))
+👉 [Try it now[]()) https://lnkd.in/dSfrdw-a](https://brainsight.onrender.com/
 
 ## 🙌 Contributions & Feedback
 
